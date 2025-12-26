@@ -1,0 +1,19 @@
+.final {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1B1B1B;
+    position: relative;
+}
+
+.final:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/counter-mask.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

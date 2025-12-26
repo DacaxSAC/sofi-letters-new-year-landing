@@ -1,0 +1,6 @@
+.hero {
+    width: 100%;
+    min-height: 100vh;
+
+    background: radial-gradient(79.51% 89.3% at 50% 90.05%, #8A5820 0%, #674117 50%, #33210C 75%, #140C04 87.5%, #080502 100%);
+}

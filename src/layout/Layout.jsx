@@ -1,6 +1,7 @@
 import styles from './Layout.module.css'
 
 import { Hero, Remember, Recap, Final } from '../sections'
+import { ScrollReminder } from '../components'
 
 export const Layout = () => {
     return (
@@ -10,6 +11,7 @@ export const Layout = () => {
                 <Remember />
                 <Recap />
                 <Final />
+                <ScrollReminder />
             </main>
         </div>
     )

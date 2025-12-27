@@ -1,6 +1,37 @@
+/* Layout */
 .hero {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     min-height: 100vh;
-
     background: radial-gradient(79.51% 89.3% at 50% 90.05%, #8A5820 0%, #674117 50%, #33210C 75%, #140C04 87.5%, #080502 100%);
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    padding: 20px;
+}
+
+/* Content Container */
+.textContainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Typography & Animation Elements */
+.textContainer .typewriter {
+    display: inline-block;
+    max-width: 290px;
+
+    font-family: "ZCOOL XiaoWei", sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+
+    color: #FFF8E4;
+    text-shadow: 0 0 50px #E4C47F;
 }

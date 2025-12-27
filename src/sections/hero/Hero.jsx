@@ -1,11 +1,20 @@
 import styles from './Hero.module.css'
-import { Typewriter } from '../../components'
+import { Typewriter, Snowfall } from '../../components'
+import confettiImg from '../../assets/confetti.webp'
+import decorationsImg from '../../assets/decorations.webp'
+import starImg from '../../assets/star.webp'
 
 export const Hero = () => {
+
     return (
         <div className={styles.hero} id="hero">
+            <Snowfall />
             <section className={styles.header}>
-                aqui va el header
+                <img src={confettiImg} alt="" className={styles.confetti} />
+                <img src={decorationsImg} alt="" className={styles.decorations} />
+                {[...Array(7)].map((_, i) => (
+                    <img key={i} src={starImg} alt="" className={styles.heroStar} />
+                ))}
             </section>
             <section className={styles.textContainer}>
                 <Typewriter

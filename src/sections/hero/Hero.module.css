@@ -5,12 +5,13 @@
     width: 100%;
     min-height: 100vh;
     background: radial-gradient(79.51% 89.3% at 50% 90.05%, #8A5820 0%, #674117 50%, #33210C 75%, #140C04 87.5%, #080502 100%);
+    position: relative;
+    overflow: hidden;
 }
 
 .header {
     position: absolute;
-    top: 20px;
-    padding: 20px;
+    width: 100%;
 }
 
 /* Content Container */
@@ -34,4 +35,121 @@
 
     color: #FFF8E4;
     text-shadow: 0 0 50px #E4C47F;
+    z-index: 15;
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 12;
+    animation: dropConfetti 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 11;
+    opacity: 0;
+    animation: dropConfetti 1.5s cubic-bezier(0.23, 1, 0.32, 1) 1.5s forwards;
+}
+
+.heroStar {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+
+    /* Animation sequence: 
+       1. fadeInStars starts at 3s (after confetti and decorations) 
+       2. starRotate starts at 4s (after fade in finishes)
+    */
+    animation: fadeInStars 1s ease-out 3s forwards,
+        starRotate 10s linear 4s infinite;
+}
+
+/* Individual Star Positions and Sizes based on reference image 
+   Note: nth-child counts all children in .header (confetti=1, decorations=2, stars 3-9)
+*/
+.heroStar:nth-child(3) {
+    left: 5%;
+    top: 40vh;
+    width: 60px;
+}
+
+.heroStar:nth-child(4) {
+    left: 40%;
+    top: 30vh;
+    width: 40px;
+}
+
+.heroStar:nth-child(5) {
+    left: 65%;
+    top: 20vh;
+    width: 75px;
+}
+
+.heroStar:nth-child(6) {
+    left: 88%;
+    top: 25vh;
+    width: 45px;
+}
+
+.heroStar:nth-child(7) {
+    left: 92%;
+    top: 65vh;
+    width: 55px;
+}
+
+.heroStar:nth-child(8) {
+    left: 78%;
+    top: 80vh;
+    width: 65px;
+}
+
+.heroStar:nth-child(9) {
+    left: 45%;
+    top: 85vh;
+    width: 35px;
+}
+
+@keyframes fadeInStars {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes starRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dropConfetti {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

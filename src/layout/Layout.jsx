@@ -1,4 +1,4 @@
-import styles from './layout.module.css'
+import styles from './Layout.module.css'
 
 import { Hero, Remember, Recap, Final, Footer } from '../sections'
 import { ScrollReminder } from '../components'

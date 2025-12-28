@@ -2,6 +2,7 @@ import { Layout } from "./layout"
 import { Loader } from "./components/Loader/Loader"
 import { usePreloadAssets } from "./hooks/usePreloadAssets"
 import { AssetProvider } from "./context/AssetContext"
+import { UIProvider } from "./context/UIContext"
 
 // Collect all images, videos and fonts from assets folders
 const assetModules = import.meta.glob(
@@ -25,9 +26,11 @@ function App() {
   }
 
   return (
-    <AssetProvider preloadedAssets={preloadedAssets}>
-      <Layout />
-    </AssetProvider>
+    <UIProvider>
+      <AssetProvider preloadedAssets={preloadedAssets}>
+        <Layout />
+      </AssetProvider>
+    </UIProvider>
   )
 }
 

@@ -6,8 +6,10 @@ import fireworksImg from '../../assets/fireworks.webp'
 import starImg from '../../assets/star.webp'
 import { Typewriter } from '../../components/Typewriter/Typewriter'
 import { useAsset } from '../../context/AssetContext'
+import { useUI } from '../../context/UIContext'
 
 export const Final = () => {
+    const { setLocked } = useUI()
     const [count, setCount] = useState(10)
     const [hasStarted, setHasStarted] = useState(false)
     const [showContent, setShowContent] = useState(false)
@@ -50,6 +52,22 @@ export const Final = () => {
             return () => clearTimeout(timer)
         }
     }, [count, hasStarted])
+
+    useEffect(() => {
+        if (hasStarted) {
+            setLocked(true)
+        }
+    }, [hasStarted, setLocked])
+
+    useEffect(() => {
+        if (showContent) {
+            // Total duration: last typewriter starts at 4600ms + 800ms duration = 5400ms
+            const timer = setTimeout(() => {
+                setLocked(false)
+            }, 6000)
+            return () => clearTimeout(timer)
+        }
+    }, [showContent, setLocked])
 
     return (
         <div className={styles.final} id="final" ref={sectionRef}>

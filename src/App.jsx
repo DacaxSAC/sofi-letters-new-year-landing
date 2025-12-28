@@ -1,4 +1,4 @@
-import { Layout } from "./layout/Layout"
+import { Layout } from "./layout"
 import { Loader } from "./components/Loader/Loader"
 import { usePreloadAssets } from "./hooks/usePreloadAssets"
 import { AssetProvider } from "./context/AssetContext"

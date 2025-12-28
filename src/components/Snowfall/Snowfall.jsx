@@ -22,7 +22,7 @@ export const Snowfall = ({ count = 120 }) => {
                         left: flake.left,
                         animationDuration: flake.animationDuration,
                         animationDelay: flake.animationDelay,
-                        opacity: .5 // Apply it here as well to be 100% sure
+                        opacity: .5
                     }}
                 />
             ))}

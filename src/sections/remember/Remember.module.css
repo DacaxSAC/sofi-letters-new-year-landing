@@ -19,74 +19,119 @@
     z-index: 1;
 }
 
-.star {
+.starWrapper {
     position: absolute;
+    pointer-events: none;
+}
+
+.star {
     width: 60px;
     height: auto;
-    opacity: 0.8;
+    opacity: 0;
+    filter: blur(10px);
+
+    /* Animation sequence:
+       1. fadeInBlur starts with a stagger (using animation-delay)
+       2. rotateStars starts after fade in
+    */
+    animation: fadeInBlur 1.5s ease-out forwards,
+        rotateStars 10s linear 1.5s infinite;
 }
 
-/* Image Container */
-.imageContainer {
-    position: relative;
-    z-index: 2;
-}
-
-.rememberImage {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    /* Opcional: algún efecto para que destaque más */
-}
-
-/* Posiciones dispersas (Same as before) */
-.star:nth-child(1) {
+/* Individual Star Positions and delays for staggered entrance */
+.starWrapper:nth-child(1) {
     top: 1%;
     left: 5%;
-    width: 50px;
-    transform: rotate(15deg);
 }
 
-.star:nth-child(2) {
+.starWrapper:nth-child(1) .star {
+    width: 50px;
+    animation-delay: 0.2s, 1.7s;
+}
+
+.starWrapper:nth-child(2) {
     top: 8%;
     right: 2%;
-    width: 70px;
-    transform: rotate(-10deg);
 }
 
-.star:nth-child(3) {
+.starWrapper:nth-child(2) .star {
+    width: 70px;
+    animation-delay: 0.5s, 2s;
+}
+
+.starWrapper:nth-child(3) {
     top: 24%;
     left: 2%;
-    width: 100px;
-    transform: rotate(45deg);
 }
 
-.star:nth-child(4) {
+.starWrapper:nth-child(3) .star {
+    width: 100px;
+    animation-delay: 0.8s, 2.3s;
+}
+
+.starWrapper:nth-child(4) {
     top: 36%;
     right: 2%;
-    width: 60px;
-    transform: rotate(-5deg);
 }
 
-.star:nth-child(5) {
+.starWrapper:nth-child(4) .star {
+    width: 60px;
+    animation-delay: 1.1s, 2.6s;
+}
+
+.starWrapper:nth-child(5) {
     bottom: 40%;
     right: 0%;
-    transform: translate(-50%, -50%) rotate(20deg);
-    width: 40px;
+    transform: translate(-50%, -50%);
 }
 
-.star:nth-child(6) {
+.starWrapper:nth-child(5) .star {
+    width: 40px;
+    animation-delay: 1.4s, 2.9s;
+}
+
+.starWrapper:nth-child(6) {
     bottom: 38%;
     left: 1%;
-    width: 35px;
-    transform: rotate(60deg);
 }
 
-.star:nth-child(7) {
+.starWrapper:nth-child(6) .star {
+    width: 35px;
+    animation-delay: 1.7s, 3.2s;
+}
+
+.starWrapper:nth-child(7) {
     bottom: 3%;
     right: 6%;
+}
+
+.starWrapper:nth-child(7) .star {
     width: 132px;
-    transform: rotate(-25deg);
+    animation-delay: 2s, 3.5s;
+}
+
+@keyframes fadeInBlur {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0.8;
+        filter: blur(0px);
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateStars {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Text Overlay Container */

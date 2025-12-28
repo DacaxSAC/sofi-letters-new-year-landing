@@ -1,0 +1,75 @@
+.footer {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1B1B1B;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.footer:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/counter-mask.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.madeBy {
+    font-family: 'Hello Duckies', cursive;
+    font-size: 1.2rem;
+    color: #FFF8E4;
+    margin: 0;
+    text-align: center;
+}
+
+.logo {
+    max-width: 300px;
+    width: 50%;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.logo.visible {
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

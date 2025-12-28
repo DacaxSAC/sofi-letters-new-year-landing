@@ -5,10 +5,14 @@
 
     width: 100vw;
     min-height: 100vh;
+    background-color: #F4EEE9;
+    background-image: url('../assets/bg-overflow.webp');
+    background-repeat: repeat;
+    background-size: 100px;
 }
 
 .layout main {
     width: 100%;
-    max-width: 480px;
+    max-width: 450px;
     min-height: 100vh;
 }

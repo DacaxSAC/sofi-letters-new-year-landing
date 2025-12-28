@@ -4,6 +4,7 @@ import { Hero, Remember, Recap, Final, Footer } from '../sections'
 import { ScrollReminder } from '../components'
 
 export const Layout = () => {
+
     return (
         <div className={styles.layout} id="layout">
             <main>

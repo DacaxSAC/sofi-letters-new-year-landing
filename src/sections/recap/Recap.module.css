@@ -21,6 +21,32 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recapThanks {
+    margin: 0 0 32px;
+    color: #34100F;
+    text-align: center;
+    text-shadow: 0 0 12px #FFDDB2;
+    font-family: Hello;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.recapYear {
+    margin: 32px 0 0;
+    color: #34100F;
+    text-align: center;
+    text-shadow: 0 0 12px #FFDDB2;
+    font-family: Hello;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .horizontalTrack {
@@ -30,6 +56,7 @@
     width: max-content;
     /* Ensure it expands to fit overflow */
     will-change: transform;
+    align-self: flex-start;
 }
 
 .recapImage {

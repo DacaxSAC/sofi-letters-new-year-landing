@@ -31,7 +31,7 @@
     text-align: center;
     text-shadow: 0 0 12px #FFDDB2;
     font-family: Hello;
-    font-size: 96px;
+    font-size: clamp(56px, 18vw, 96px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -43,7 +43,7 @@
     text-align: center;
     text-shadow: 0 0 12px #FFDDB2;
     font-family: Hello;
-    font-size: 96px;
+    font-size: clamp(56px, 18vw, 96px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -60,7 +60,7 @@
 }
 
 .recapImage {
-    width: 50vw;
+    max-width: 300px;
     /* Using vw as '50%' often implies viewport width in these effects */
     flex-shrink: 0;
     object-fit: contain;

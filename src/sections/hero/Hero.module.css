@@ -75,7 +75,7 @@
     font-family: "ZCOOL XiaoWei", sans-serif;
 
     color: #C39355;
-    font-size: 40px;
+    font-size: clamp(18px, 7vw, 40px);
     line-height: normal;
 }
 
@@ -83,7 +83,7 @@
     color: #C39355;
     text-align: center;
     font-family: Hello;
-    font-size: 96px;
+    font-size: clamp(56px, 18vw, 96px);
     font-style: normal;
     font-weight: 400;
     line-height: normal;

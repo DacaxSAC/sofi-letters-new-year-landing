@@ -68,8 +68,8 @@
     position: absolute;
     top: 8%;
     left: 8%;
-    width: auto;
-    max-width: 70%;
+    width: 50%;
+    max-width: 50%;
     z-index: 3;
     display: flex;
     justify-content: flex-start;
@@ -81,10 +81,9 @@
 .textContainer .typewriter {
     color: #C39355;
     font-family: "ZCOOL XiaoWei";
-    font-size: 24px;
+    font-size: clamp(16px, 5.5vw, 24px);
     font-weight: 400;
     line-height: normal;
-    max-width: 233px;
     display: block;
     /* Stable layout */
     width: 100%;
@@ -92,11 +91,4 @@
     right: 12px;
     top: 8px;
     white-space: normal;
-}
-
-@media (max-width: 350px) {
-    .textContainer .typewriter {
-        max-width: 200px;
-        font-size: 36px;
-    }
 }

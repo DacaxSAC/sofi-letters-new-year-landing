@@ -4,7 +4,10 @@
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background: radial-gradient(79.51% 89.3% at 50% 90.05%, #8A5820 0%, #674117 50%, #33210C 75%, #140C04 87.5%, #080502 100%);
+    background-image: url('../../assets/bg-hero.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
 }
@@ -14,142 +17,74 @@
     width: 100%;
 }
 
-/* Content Container */
 .textContainer {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+}
+
+.paperWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+.tape {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 50%;
+    height: auto;
+    z-index: 25;
+    pointer-events: none;
+    filter: opacity(0.9) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.paper {
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+    position: absolute;
+    width: 70%;
+    max-width: 320px;
+    gap: 15px;
 }
 
 /* Typography & Animation Elements */
-.textContainer .typewriter {
+.typewriter {
     display: inline-block;
-    max-width: 290px;
+    width: 100%;
 
     font-family: "ZCOOL XiaoWei", sans-serif;
-    font-size: 48px;
+
+    color: #C39355;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.typewriter:first-child {
+    color: #C39355;
+    text-align: center;
+    font-family: Hello;
+    font-size: 96px;
+    font-style: normal;
     font-weight: 400;
     line-height: normal;
-
-    color: #FFF8E4;
-    text-shadow: 0 0 50px #E4C47F;
-    z-index: 15;
-}
-
-.confetti {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    z-index: 12;
-    animation: dropConfetti 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-.decorations {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    z-index: 11;
-    opacity: 0;
-    animation: dropConfetti 1.5s cubic-bezier(0.23, 1, 0.32, 1) 1.5s forwards;
-}
-
-.heroStar {
-    position: absolute;
-    width: 50px;
-    height: auto;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10;
-
-    /* Animation sequence: 
-       1. fadeInStars starts at 3s (after confetti and decorations) 
-       2. starRotate starts at 4s (after fade in finishes)
-    */
-    animation: fadeInStars 1s ease-out 3s forwards,
-        starRotate 10s linear 4s infinite;
-}
-
-/* Individual Star Positions and Sizes based on reference image 
-   Note: nth-child counts all children in .header (confetti=1, decorations=2, stars 3-9)
-*/
-.heroStar:nth-child(3) {
-    left: 5%;
-    top: 40vh;
-    width: 60px;
-}
-
-.heroStar:nth-child(4) {
-    left: 40%;
-    top: 30vh;
-    width: 40px;
-}
-
-.heroStar:nth-child(5) {
-    left: 65%;
-    top: 20vh;
-    width: 75px;
-}
-
-.heroStar:nth-child(6) {
-    left: 88%;
-    top: 25vh;
-    width: 45px;
-}
-
-.heroStar:nth-child(7) {
-    left: 92%;
-    top: 65vh;
-    width: 55px;
-}
-
-.heroStar:nth-child(8) {
-    left: 78%;
-    top: 80vh;
-    width: 65px;
-}
-
-.heroStar:nth-child(9) {
-    left: 45%;
-    top: 85vh;
-    width: 35px;
-}
-
-@keyframes fadeInStars {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes starRotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes dropConfetti {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }

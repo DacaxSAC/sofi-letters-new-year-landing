@@ -1,7 +1,10 @@
 .footer {
     width: 100%;
     min-height: 100vh;
-    background-color: #1B1B1B;
+    background-image: url('../../assets/bg-letter.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     justify-content: center;
@@ -9,22 +12,7 @@
     overflow: hidden;
 }
 
-.footer:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../../assets/counter-mask.webp');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: screen;
-    opacity: 0.5;
-}
+
 
 .content {
     width: 100%;
@@ -39,7 +27,7 @@
 .madeBy {
     font-family: 'Hello Duckies', cursive;
     font-size: 1.2rem;
-    color: #FFF8E4;
+    color: #351110;
     margin: 0;
     text-align: center;
 }

@@ -1,30 +1,23 @@
 .final {
     width: 100%;
     min-height: 100vh;
-    background-color: #1B1B1B;
+    background-image: url('../../assets/bg-letter.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    transition: background-image 0.8s ease-in-out;
 }
 
-.final:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../../assets/counter-mask.webp');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: screen;
-    opacity: 0.5;
+.finalSuccess {
+    background-image: url('../../assets/bg-final.avif') !important;
 }
+
+
 
 .curtain {
     position: absolute;
@@ -75,14 +68,12 @@
 }
 
 .number {
-    font-family: "Viaoda Libre", serif;
+    font-family: "ZCOOL XiaoWei";
     font-size: 15rem;
-    color: #FFF8E4;
+    color: #351110;
     font-weight: bold;
     line-height: 1;
-    text-shadow: 0 0 30px rgba(228, 196, 127, 0.5);
-
-    /* Animation trigger */
+    text-shadow: 0 0 12px #351110;
     animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
@@ -121,6 +112,7 @@
     width: 100%;
     position: relative;
     color: #FFF8E4;
+    text-shadow: 0 0 50px #E4C47F;
 }
 
 .messageOnEnd h3 {
@@ -130,7 +122,7 @@
 .messageOnEnd h2 {
     font-family: "ZCOOL XiaoWei", sans-serif;
     font-size: 4rem;
-    text-shadow: 0 0 50px #E4C47F;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     margin: 0;
 
 }
@@ -155,6 +147,8 @@
     .messageOnEnd p {
         font-size: 1.3rem;
         max-width: 250px;
+        color: #FFF8E4;
+        text-shadow: 0 0 50px #E4C47F;
     }
 }
 
@@ -170,6 +164,8 @@
     .messageOnEnd p {
         font-size: 1.5rem;
         max-width: 300px;
+        color: #FFF8E4;
+        text-shadow: 0 0 50px #E4C47F;
     }
 }
 
@@ -242,6 +238,7 @@
     z-index: 5;
     text-align: center;
     color: #FFF8E4;
+    text-shadow: 0 0 50px #E4C47F;
     font-family: "Xanh Mono", sans-serif;
     font-size: .8rem;
     opacity: 0;

@@ -1,43 +1,15 @@
 .remember {
     width: 100%;
     min-height: 100vh;
-    background: rgba(211, 195, 180, 1);
+    background-image: url('../../assets/bg-letter.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.starsContainer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.starWrapper {
-    position: absolute;
-    pointer-events: none;
-}
-
-.star {
-    width: 60px;
-    height: auto;
-    opacity: 0;
-    filter: blur(10px);
-}
-
-.visible .star {
-    /* Animation sequence:
-       1. fadeInBlur starts after image animation (shifted)
-       2. rotateStars starts after fade in
-    */
-    animation: fadeInBlur 1.5s ease-out forwards,
-        rotateStars 10s linear 1.5s infinite;
 }
 
 .imageContainer {
@@ -49,157 +21,77 @@
     align-items: center;
 }
 
-.rememberImage {
-    width: 100%;
-    max-height: 80vh;
-    opacity: 0;
-    filter: blur(20px);
+.balloonsLeft {
+    position: absolute;
+    left: -190px;
+    top: 10%;
+    width: 50%;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    transform: rotate(-0deg);
 }
 
-.visible .rememberImage {
-    animation: imageEntrance 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.balloonsRight {
+    position: absolute;
+    right: -200px;
+    top: 60%;
+    transform: scaleX(-1);
+    width: 50%;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
 }
 
-@keyframes imageEntrance {
-    0% {
-        opacity: 0;
-        filter: blur(20px);
-        transform: scale(0.9);
-    }
+.visible .balloonsLeft {
+    animation: balloonsEntranceLeft 3s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
 
+.visible .balloonsRight {
+    animation: balloonsEntranceRight 3s cubic-bezier(0.4, 0, 0.2, 1) 0.8s both;
+}
+
+@keyframes balloonsEntranceLeft {
     100% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: scale(1);
+        left: calc(100% - 150px);
     }
 }
 
-/* Individual Star Positions and delays for staggered entrance */
-.starWrapper:nth-child(1) {
-    top: 1%;
-    left: 5%;
-}
-
-.starWrapper:nth-child(1) .star {
-    width: 50px;
-    animation-delay: 2.2s, 3.7s;
-}
-
-.starWrapper:nth-child(2) {
-    top: 8%;
-    right: 2%;
-}
-
-.starWrapper:nth-child(2) .star {
-    width: 70px;
-    animation-delay: 2.5s, 4s;
-}
-
-.starWrapper:nth-child(3) {
-    top: 24%;
-    left: 2%;
-}
-
-.starWrapper:nth-child(3) .star {
-    width: 100px;
-    animation-delay: 2.8s, 4.3s;
-}
-
-.starWrapper:nth-child(4) {
-    top: 36%;
-    right: 2%;
-}
-
-.starWrapper:nth-child(4) .star {
-    width: 60px;
-    animation-delay: 3.1s, 4.6s;
-}
-
-.starWrapper:nth-child(5) {
-    bottom: 40%;
-    right: 0%;
-    transform: translate(-50%, -50%);
-}
-
-.starWrapper:nth-child(5) .star {
-    width: 40px;
-    animation-delay: 3.4s, 4.9s;
-}
-
-.starWrapper:nth-child(6) {
-    bottom: 38%;
-    left: 1%;
-}
-
-.starWrapper:nth-child(6) .star {
-    width: 35px;
-    animation-delay: 3.7s, 5.2s;
-}
-
-.starWrapper:nth-child(7) {
-    bottom: 3%;
-    right: 6%;
-}
-
-.starWrapper:nth-child(7) .star {
-    width: 132px;
-    animation-delay: 4.0s, 5.5s;
-}
-
-@keyframes fadeInBlur {
-    0% {
-        opacity: 0;
-        filter: blur(20px);
-        transform: scale(1.5);
-    }
-
+@keyframes balloonsEntranceRight {
     100% {
-        opacity: 0.8;
-        filter: blur(0px);
-        transform: scale(1);
-    }
-}
-
-@keyframes rotateStars {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
+        right: calc(100% - 150px);
     }
 }
 
 /* Text Overlay Container */
 .textContainer {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    top: 8%;
+    left: 8%;
+    width: auto;
+    max-width: 70%;
     z-index: 3;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
     pointer-events: none;
 }
 
 .textContainer .typewriter {
-    font-family: "Viaoda Libre";
-    color: #FFF8E4;
-    max-width: 233px;
-    display: inline-block;
-    text-align: center;
-    text-shadow: 0 0 50px #E4C47F;
-    font-size: 40px;
-    font-style: normal;
+    color: #C39355;
+    font-family: "ZCOOL XiaoWei";
+    font-size: 24px;
     font-weight: 400;
     line-height: normal;
-    rotate: -4deg;
+    max-width: 233px;
+    display: block;
+    /* Stable layout */
+    width: 100%;
     position: relative;
     right: 12px;
     top: 8px;
+    white-space: normal;
 }
 
 @media (max-width: 350px) {

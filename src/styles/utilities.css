@@ -27,3 +27,27 @@
     font-style: italic;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Hello';
+    src: url('../assets/fonts/Hello.otf') format('opentype'), url('../assets/fonts/Hello.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cronde';
+    src: url('../assets/fonts/CRONDERegular.ttf') format('truetype'), url('../assets/fonts/CRONDE.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cronde';
+    src: url('../assets/fonts/CRONDEItalic.ttf') format('truetype'), url('../assets/fonts/CRONDE-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}

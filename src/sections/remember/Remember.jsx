@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Remember.module.css'
-import starImg from '../../assets/star.webp'
-import rememberImg from '../../assets/remember.webp'
+import balloons from '../../assets/balloons.webp'
 import { Typewriter } from '../../components'
 import { useAsset } from '../../context/AssetContext'
 
 export const Remember = () => {
-    const preloadedRememberImg = useAsset(rememberImg)
+    const preloadedBallonsImg = useAsset(balloons)
     const [isVisible, setIsVisible] = useState(false)
     const sectionRef = useRef(null)
 
@@ -33,21 +32,13 @@ export const Remember = () => {
             id="remember"
             ref={sectionRef}
         >
-            <div className={styles.starsContainer}>
-                {[...Array(7)].map((_, i) => (
-                    <div key={i} className={styles.starWrapper}>
-                        <img src={starImg} alt="" className={styles.star} />
-                    </div>
-                ))}
-            </div>
-            <div className={styles.imageContainer}>
-                <img src={preloadedRememberImg} alt="Remember" className={styles.rememberImage} />
-            </div>
+            <img src={preloadedBallonsImg} alt="Balloons Left" className={styles.balloonsLeft} />
+            <img src={preloadedBallonsImg} alt="Balloons Right" className={styles.balloonsRight} />
             <div className={styles.textContainer}>
                 {isVisible && (
                     <Typewriter
                         className={styles.typewriter}
-                        text="Gracias por ser parte de mi 2025"
+                        text="Gracias por llegar a mi vida y hacerla más bonita, más tranquila y más real. Este año me enseñó que contigo todo se siente mejor, incluso los días difíciles. Deseo que el nuevo año nos siga encontrando juntos, creciendo, aprendiendo y eligiéndonos con el mismo amor de siempre."
                         delay={2500}
                         duration={3000}
                     />

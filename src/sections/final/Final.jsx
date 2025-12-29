@@ -4,6 +4,7 @@ import curtainImg from '../../assets/curtain.webp'
 import circleImg from '../../assets/circle.webp'
 import fireworksImg from '../../assets/fireworks.webp'
 import starImg from '../../assets/star.webp'
+import bgFinalImg from '../../assets/bg-final.avif'
 import { Typewriter } from '../../components/Typewriter/Typewriter'
 import { useAsset } from '../../context/AssetContext'
 import { useUI } from '../../context/UIContext'
@@ -12,6 +13,7 @@ export const Final = () => {
     const { setLocked } = useUI()
     const [count, setCount] = useState(10)
     const [hasStarted, setHasStarted] = useState(false)
+    const [showBgSuccess, setShowBgSuccess] = useState(false)
     const [showContent, setShowContent] = useState(false)
     const sectionRef = useRef(null)
 
@@ -19,6 +21,7 @@ export const Final = () => {
     const preloadedCircle = useAsset(circleImg)
     const preloadedFireworks = useAsset(fireworksImg)
     const preloadedStar = useAsset(starImg)
+    const preloadedBgFinal = useAsset(bgFinalImg)
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -47,7 +50,11 @@ export const Final = () => {
             return () => clearTimeout(timer)
         } else if (count === 1) {
             const timer = setTimeout(() => {
-                setShowContent(true)
+                setShowBgSuccess(true)
+                const contentTimer = setTimeout(() => {
+                    setShowContent(true)
+                }, 800) // Delay content reveal slightly after BG change
+                return () => clearTimeout(contentTimer)
             }, 1000)
             return () => clearTimeout(timer)
         }
@@ -70,7 +77,7 @@ export const Final = () => {
     }, [showContent, setLocked])
 
     return (
-        <div className={styles.final} id="final" ref={sectionRef}>
+        <div className={`${styles.final} ${showBgSuccess ? styles.finalSuccess : ''}`} id="final" ref={sectionRef}>
             {showContent && (
                 <>
                     <img src={preloadedCurtain} alt="" className={`${styles.curtain} ${styles.curtainLeft}`} />
